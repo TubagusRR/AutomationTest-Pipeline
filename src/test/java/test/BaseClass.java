@@ -27,6 +27,7 @@ public class BaseClass extends ExtentReportDemo{
             caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
             caps.setCapability("noReset", "TRUE");
 //          caps.setCapability("app", "URL");
+            caps.setCapability("automationName", "uiautomator2");
             caps.setCapability("appPackage", "com.android.vending");
             caps.setCapability("appActivity", "com.android.vending.AssetBrowserActivity");
 
