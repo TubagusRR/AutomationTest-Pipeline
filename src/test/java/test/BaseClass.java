@@ -31,7 +31,7 @@ public class BaseClass extends ExtentReportDemo{
             caps.setCapability("appPackage", "com.android.vending");
             caps.setCapability("appActivity", "com.android.vending.AssetBrowserActivity");
 
-            URL url = new URL("http://0.0.0.0:4723/wd/hub");
+            URL url = new URL("http://127.0.1.1:4723/wd/hub");
             driver = new AndroidDriver<MobileElement>(url,caps);
         }catch(Exception e){
             System.out.println("Cause is :"+ e.getCause());
