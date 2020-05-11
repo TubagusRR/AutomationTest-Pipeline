@@ -20,22 +20,59 @@ public class DownloadAppPage {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @AndroidFindBy(id = "com.android.vending:id/search_bar_hint")
+//    @AndroidFindBy(id = "com.android.vending:id/search_bar_hint")
+//    private MobileElement searchBar;
+//
+//    @AndroidFindBy(id = "com.android.vending:id/search_bar_text_input")
+//    private MobileElement inputTittle;
+//
+//    @AndroidFindBy(id = "com.android.vending:id/play_card")
+//    private MobileElement listViewApp;
+//
+//    @AndroidFindBy(id = "com.android.vending:id/right_button")
+//    private MobileElement updateButton;
+
+    @AndroidFindBy(id = "com.android.vending:id/search_box_idle_text")
     private MobileElement searchBar;
 
-    @AndroidFindBy(id = "com.android.vending:id/search_bar_text_input")
+    @AndroidFindBy(id = "com.android.vending:id/search_box_text_input")
     private MobileElement inputTittle;
 
-    @AndroidFindBy(id = "com.android.vending:id/play_card")
+    @AndroidFindBy(id = "com.android.vending:id/li_thumbnail")
     private MobileElement listViewApp;
 
-    @AndroidFindBy(id = "com.android.vending:id/right_button")
+    @AndroidFindBy(id = "com.android.vending:id/buy_button")
     private MobileElement updateButton;
 
 
+
+
+
+//    public void clickSearchBar(AndroidDriver<MobileElement> driver){
+//        WebDriverWait wait = new WebDriverWait(driver, 60);
+//        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/search_bar_hint")));
+//        searchBar.click();
+//    }
+//
+//    public void enterKeyword(String tittle){
+//        inputTittle.sendKeys(tittle);
+//    }
+//
+//    public void clickApp(AndroidDriver<MobileElement> driver){
+//        WebDriverWait wait = new WebDriverWait(driver, 60);
+//        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/play_card")));
+//        listViewApp.click();
+//    }
+//
+//    public void clickUpdateButton(AndroidDriver<MobileElement> driver){
+//        WebDriverWait wait = new WebDriverWait(driver, 60);
+//        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/right_button")));
+//        updateButton.click();
+//    }
+
     public void clickSearchBar(AndroidDriver<MobileElement> driver){
         WebDriverWait wait = new WebDriverWait(driver, 60);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/search_bar_hint")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/search_box_idle_text")));
         searchBar.click();
     }
 
@@ -45,13 +82,13 @@ public class DownloadAppPage {
 
     public void clickApp(AndroidDriver<MobileElement> driver){
         WebDriverWait wait = new WebDriverWait(driver, 60);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/play_card")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/li_thumbnail")));
         listViewApp.click();
     }
 
     public void clickUpdateButton(AndroidDriver<MobileElement> driver){
         WebDriverWait wait = new WebDriverWait(driver, 60);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/right_button")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/buy_button")));
         updateButton.click();
     }
 

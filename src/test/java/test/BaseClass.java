@@ -20,30 +20,31 @@ public class BaseClass extends ExtentReportDemo{
     public void setup() throws MalformedURLException{
         try{
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability(CapabilityType.PLATFORM_NAME, "Android");
-            caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9.0");
-            caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus 5X API 28");
+            caps.setCapability(CapabilityType.PLATFORM_NAME, "android");
+            caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8");
+            caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel");
             caps.setCapability(MobileCapabilityType.UDID, "emulator-5554");
             caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
             caps.setCapability("noReset", "TRUE");
 //          caps.setCapability("app", "URL");
-            caps.setCapability("automationName", "uiautomator2");
             caps.setCapability("appPackage", "com.android.vending");
             caps.setCapability("appActivity", "com.android.vending.AssetBrowserActivity");
+            caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 
-            URL url = new URL("http://127.0.1.1:4723/wd/hub");
-            driver = new AndroidDriver<MobileElement>(url,caps);
+
+            URL url = new URL("http://0.0.0.0:4723/wd/hub");
+            driver = new AndroidDriver<MobileElement>(url, caps);
         }catch(Exception e){
             System.out.println("Cause is :"+ e.getCause());
             System.out.println("Message is : "+ e.getMessage());
             e.printStackTrace();
         }
+
     }
 
     @Test
     public void firstTest(){
         System.out.println("I'm Inside The Test");
-        driver.findElement(By.id("com.android.vending:id/search_bar_hint"));
     }
 
     @AfterTest
