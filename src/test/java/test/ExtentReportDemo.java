@@ -1,20 +1,66 @@
 package test;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.relevantcodes.extentreports.LogStatus;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import utils.ExtentReport.GetScreenShot;
+
+import java.io.IOException;
 
 public class ExtentReportDemo {
     ExtentHtmlReporter htmlReporter;
     ExtentReports extentReport;
+    ExtentTest test;
+
     @BeforeSuite
     public void ExtentSetup(){
-        htmlReporter = new ExtentHtmlReporter("extent.html");
+        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "\\ExtentReports\\reporting.html");
+        String css = ".r-img{width : 30%;}";
+        htmlReporter.config().setCSS(css);
+        htmlReporter.config().setTheme(Theme.DARK);
+        htmlReporter.config().setDocumentTitle("Demo Report");
+        htmlReporter.config().setReportName("Report Success Please");
+        htmlReporter.config().setAutoCreateRelativePathMedia(true);
+//        extentReport.setSystemInfo("OS","Windows");
+//        extentReport.setSystemInfo("Host Name", "Tubagus R");
+//        extentReport.setSystemInfo("Environment", "QA");
+//        extentReport.setSystemInfo("User Name", "Tubagus Radhiyya R");
 
         extentReport = new ExtentReports();
         extentReport.attachReporter(htmlReporter);
     }
+
+//        @AfterMethod
+//        public void getResult(ITestResult result) throws IOException
+//        {
+//            if(result.getStatus() == ITestResult.FAILURE)
+//            {
+//                String screenShotPath = GetScreenShot.capture(driver, "test");
+//                test.log(Status.FAIL, MarkupHelper.createLabel(result.getName()+" Test case FAILED due to below issues:", ExtentColor.RED));
+//                test.log(Status.FAIL, result.getThrowable());
+//                test.log(Status.FAIL,"Snapshot" +test.addScreenCaptureFromPath(screenShotPath));
+////                test.log(Status.FAIL, "Snapshot below: " + test.addScreenCaptureFromPath(screenShotPath));
+//            }else if(result.getStatus() == ITestResult.SUCCESS)
+//            {
+//                test.log(Status.PASS, MarkupHelper.createLabel(result.getName()+" Test Case PASSED", ExtentColor.GREEN));
+//            }
+//            else
+//            {
+//                test.log(Status.SKIP, MarkupHelper.createLabel(result.getName()+" Test Case SKIPPED", ExtentColor.ORANGE));
+//                test.skip(result.getThrowable());
+//            }
+//
+//}
+
 
     @AfterSuite
     public void ExtentTearDown(){ extentReport.flush();}

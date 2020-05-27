@@ -1,0 +1,1 @@
+{"uuid":"b4396689-e1d4-45e9-95af-e59694a05fd9","name":"Default Suite","children":["190ad814-79d6-4049-9afe-33548df5cd14"],"befores":[{"name":"ExtentSetup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1590133267726,"stop":1590133267815}],"afters":[],"links":[],"start":1590133267705,"stop":1590133285437}

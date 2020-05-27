@@ -9,11 +9,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import utils.ExtentReport.BaseTest;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class BaseClass extends ExtentReportDemo{
+public class BaseClass extends ExtentReportDemo {
     public static AndroidDriver<MobileElement> driver;
 
     @BeforeTest
@@ -42,10 +43,6 @@ public class BaseClass extends ExtentReportDemo{
 
     }
 
-    @Test
-    public void firstTest(){
-        System.out.println("I'm Inside The Test");
-    }
 
     @AfterTest
     public void tearDown(){

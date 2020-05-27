@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "Test">
+
+    <test name = "exampletest1">
+        <classes>
+            <class name = "test.chipViewTest" />
+        </classes>
+    </test>
+
+    <test name = "exampletest2">
+        <classes>
+            <class name = "test.DownloadAppTest" />
+        </classes>
+    </test>
+
+</suite>
