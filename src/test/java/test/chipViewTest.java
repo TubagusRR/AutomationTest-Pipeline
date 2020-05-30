@@ -24,7 +24,6 @@ import utils.ExtentReport.GetScreenShot;
 import java.io.IOException;
 
 public class chipViewTest extends BaseClass{
-    ExtentTest test;
     @Test
     public void clickChipView(){
 
@@ -44,47 +43,19 @@ public class chipViewTest extends BaseClass{
             driver.launchApp();
         }
     }
-//    @AfterMethod
-//    protected void afterMethod(ITestResult result) throws Exception {
-//
-//        if (result.getStatus() == ITestResult.FAILURE) {
-//            String screenShotPath = GetScreenShot.capture(driver, "screenShotName");
-//            test.log(Status.FAIL, result.getThrowable());
-//            test.log(Status.FAIL, "Snapshot below: " + test.addScreenCaptureFromPath(screenShotPath));
-//        } else if (result.getStatus() == ITestResult.SKIP){
-//            test.log(Status.SKIP, "Test skipped " + result.getThrowable());
-//        } else {
-//            test.log(Status.PASS, "Test passed");
-//
-//        }
-//
-//    }
-        @AfterMethod
-        public void getResult(ITestResult result) throws IOException
-        {
-            if(result.getStatus() == ITestResult.FAILURE)
-            {
-                String screenShotPath = GetScreenShot.capture(driver, "test");
-                test.log(Status.FAIL, MarkupHelper.createLabel(result.getName()+" Test case FAILED due to below issues:", ExtentColor.RED));
-                test.log(Status.FAIL, result.getThrowable());
-                test.log(Status.FAIL,"Snapshot" +test.addScreenCaptureFromPath(screenShotPath));
-//                test.log(Status.FAIL, "Snapshot below: " + test.addScreenCaptureFromPath(screenShotPath));
-            }else if(result.getStatus() == ITestResult.SUCCESS)
-            {
-                test.log(Status.PASS, MarkupHelper.createLabel(result.getName()+" Test Case PASSED", ExtentColor.GREEN));
-            }
-            else
-            {
-                test.log(Status.SKIP, MarkupHelper.createLabel(result.getName()+" Test Case SKIPPED", ExtentColor.ORANGE));
-                test.skip(result.getThrowable());
-            }
+    @AfterMethod
+    public void getResult(ITestResult result) throws IOException {
+        if (result.getStatus() == ITestResult.FAILURE) {
+            String screenShotPath = GetScreenShot.capture(driver, result.getName());
+            test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " Test case FAILED due to below issues:", ExtentColor.RED));
+            test.log(Status.FAIL, result.getThrowable());
+            test.log(Status.FAIL, "Snapshot" + test.addScreenCaptureFromPath(screenShotPath));
+        } else if (result.getStatus() == ITestResult.SUCCESS) {
+            test.log(Status.PASS, MarkupHelper.createLabel(result.getName() + " Test Case PASSED", ExtentColor.GREEN));
+        } else {
+            test.log(Status.SKIP, MarkupHelper.createLabel(result.getName() + " Test Case SKIPPED", ExtentColor.ORANGE));
+            test.skip(result.getThrowable());
+        }
 
-}
-
-    @AfterTest
-    public void endReport()
-    {
-        driver.quit();
     }
-
 }
