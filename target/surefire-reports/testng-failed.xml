@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Test]">
+  <test thread-count="5" verbose="0" name="exampletest(failed)">
+    <classes>
+      <class name="test.chipViewTest">
+        <methods>
+          <include name="setup"/>
+          <include name="getResult"/>
+          <include name="clickChipView"/>
+          <include name="ExtentTearDown"/>
+          <include name="ExtentSetup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- test.chipViewTest -->
+      <class name="test.DownloadAppTest">
+        <methods>
+          <include name="UpdateAppPositive"/>
+          <include name="setup"/>
+          <include name="ExtentTearDown"/>
+          <include name="getResult"/>
+          <include name="ExtentSetup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- test.DownloadAppTest -->
+    </classes>
+  </test> <!-- exampletest(failed) -->
+</suite> <!-- Failed suite [Test] -->

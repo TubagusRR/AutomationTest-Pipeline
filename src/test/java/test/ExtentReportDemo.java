@@ -1,5 +1,6 @@
 package test;
 
+import com.aventstack.extentreports.AnalysisStrategy;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -20,7 +21,6 @@ import utils.ExtentReport.GetScreenShot;
 import java.io.IOException;
 
 public class ExtentReportDemo {
-    public static AndroidDriver<MobileElement> driver;
     public static ExtentHtmlReporter htmlReporter;
     public static ExtentReports extentReport;
     public static ExtentTest test;
@@ -31,10 +31,12 @@ public class ExtentReportDemo {
 
         extentReport = new ExtentReports();
         extentReport.attachReporter(htmlReporter);
+        extentReport.setAnalysisStrategy(AnalysisStrategy.CLASS);
 
         String css = ".r-img{width : 30%;}";
 
         htmlReporter.config().setCSS(css);
+        htmlReporter.config().setEncoding("utf-8");
         htmlReporter.config().setTheme(Theme.DARK);
         htmlReporter.config().setDocumentTitle("Demo Report");
         htmlReporter.config().setReportName("Report Success Please");

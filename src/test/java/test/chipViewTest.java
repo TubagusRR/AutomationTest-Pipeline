@@ -11,6 +11,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import com.relevantcodes.extentreports.LogStatus;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -56,6 +57,5 @@ public class chipViewTest extends BaseClass{
             test.log(Status.SKIP, MarkupHelper.createLabel(result.getName() + " Test Case SKIPPED", ExtentColor.ORANGE));
             test.skip(result.getThrowable());
         }
-
     }
 }

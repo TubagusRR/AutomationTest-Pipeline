@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 66.877 sec <<< FAILURE! - in TestSuite
+clickChipView(test.chipViewTest)  Time elapsed: 18.746 sec  <<< FAILURE!
+java.lang.AssertionError: null
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.fail(Assert.java:103)
+	at test.chipViewTest.clickChipView(chipViewTest.java:42)
+
+UpdateAppPositive(test.DownloadAppTest)  Time elapsed: 2.29 sec  <<< FAILURE!
+java.lang.AssertionError: null
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.fail(Assert.java:103)
+	at test.DownloadAppTest.UpdateAppPositive(DownloadAppTest.java:32)
+

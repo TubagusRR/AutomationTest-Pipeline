@@ -1,0 +1,8 @@
+test\BaseClass.class
+pages\chipViewPage.class
+test\ExtentReportDemo.class
+test\chipViewTest.class
+utils\ExtentReport\BaseTest.class
+pages\DownloadAppPage.class
+test\DownloadAppTest.class
+utils\ExtentReport\GetScreenShot.class
