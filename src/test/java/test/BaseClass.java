@@ -3,6 +3,7 @@ package test;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.aspectj.lang.annotation.After;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -23,10 +24,11 @@ public class BaseClass extends ExtentReportDemo {
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability(CapabilityType.PLATFORM_NAME, "android");
             caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8");
-            caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel");
+            caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus");
             caps.setCapability(MobileCapabilityType.UDID, "emulator-5554");
             caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
             caps.setCapability("noReset", "TRUE");
+
 //          caps.setCapability("app", "URL");
             caps.setCapability("appPackage", "com.android.vending");
             caps.setCapability("appActivity", "com.android.vending.AssetBrowserActivity");
@@ -45,7 +47,7 @@ public class BaseClass extends ExtentReportDemo {
 
 
     @AfterTest
-    public void tearDown(){
-
+    public void tearDown() {
+//    driver.quit();
     }
 }

@@ -34,14 +34,14 @@ public class chipViewPage {
 
     public void verifyActionBar(AndroidDriver<MobileElement> driver){
         WebDriverWait wait = new WebDriverWait(driver,15);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/play_card")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/top_charts_card")));
 
         try{
             String cek = tittle.getText();
             System.out.println(cek);
 //            List<MobileElement> tittle = driver.findElements(By.id("com.android.vending:id/title"));
             if(wait.until(ExpectedConditions.visibilityOf((MobileElement) tittle)) != null){
-                Assert.assertTrue(tittle.getText().contains("For ypoiuou"));
+                Assert.assertTrue(tittle.getText().contains("For you"));
                 System.out.println("Element Correct");
                 }else{
                 System.out.println("Element Not Present");

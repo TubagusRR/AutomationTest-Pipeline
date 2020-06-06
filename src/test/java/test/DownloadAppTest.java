@@ -5,6 +5,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
@@ -24,13 +25,16 @@ public class DownloadAppTest extends BaseClass {
             test = extentReport.createTest("test","test");
             test.log(Status.INFO, "Test Started");
             downloadAppPage.clickSearchBar(driver);
-            driver.findElementById(";lkajsdfl;kasdjf");
-            test.log(Status.PASS, "Test");
+            downloadAppPage.enterKeyword("Ezeelink");
+            driver.pressKey(new KeyEvent(AndroidKey.ENTER));
+            downloadAppPage.clickApp(driver);
+            downloadAppPage.clickUpdateButton(driver);
 
-    }catch(Exception e){
+            test.log(Status.PASS, "Test");
+       }catch(Exception e){
             e.printStackTrace();
             Assert.fail();
-            ((AndroidDriver) driver).closeApp();
+            driver.closeApp();
             driver.launchApp();
         }
     }
@@ -49,7 +53,8 @@ public class DownloadAppTest extends BaseClass {
             test.log(Status.SKIP, MarkupHelper.createLabel(result.getName() + " Test Case SKIPPED", ExtentColor.ORANGE));
             test.skip(result.getThrowable());
         }
-
+        driver.closeApp();
+        driver.launchApp();
     }
  }
 

@@ -22,7 +22,7 @@ public class scrollPage {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    By app = By.id("com.android.vending:id/chip");
+    By app = By.id("com.android.vending:id/cta_button");
 
     public void scrollDownUntilFound() throws Exception {
         Boolean isElementfound = driver.findElements(app).size() > 0;
@@ -32,13 +32,13 @@ public class scrollPage {
             }
     }
 
-    public void swipeHorizontalUntilTheElementFound() throws Exception{
-        Boolean isElementFound = driver.findElements(app).size() > 0;
-        while (isElementFound == false) {
-            swipeHorizontal((AppiumDriver) driver, 0,0,0,0);
-            isElementFound = driver.findElements(app).size() > 0;
-        }
-    }
+//    public void swipeHorizontalUntilTheElementFound() throws Exception{
+//        Boolean isElementFound = driver.findElements(app).size() > 0;
+//        while (isElementFound == false) {
+//            swipeHorizontal((AppiumDriver) driver, 0,0,0,0);
+//            isElementFound = driver.findElements(app).size() > 0;
+//        }
+//    }
 
     public static void swipeVertical(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage, int duration)throws Exception{
         Dimension size = driver.manage().window().getSize();
