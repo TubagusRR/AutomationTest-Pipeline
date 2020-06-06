@@ -19,6 +19,8 @@ import org.testng.annotations.BeforeSuite;
 import utils.ExtentReport.GetScreenShot;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ExtentReportDemo {
     public static ExtentHtmlReporter htmlReporter;
@@ -27,6 +29,7 @@ public class ExtentReportDemo {
 
     @BeforeSuite
     public void ExtentSetup() {
+        String dateName = new SimpleDateFormat("ddMMyyyy").format(new Date());
         htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "\\ExtentReports\\reporting.html");
 
         extentReport = new ExtentReports();
@@ -39,7 +42,7 @@ public class ExtentReportDemo {
         htmlReporter.config().setEncoding("utf-8");
         htmlReporter.config().setTheme(Theme.DARK);
         htmlReporter.config().setDocumentTitle("Demo Report");
-        htmlReporter.config().setReportName("Report Success Please");
+        htmlReporter.config().setReportName("Report Success");
         htmlReporter.config().setAutoCreateRelativePathMedia(true);
 
         extentReport.setSystemInfo("OS", "Windows");

@@ -124,7 +124,7 @@
                             <!-- Email Body Content -->
                             <htmlMessage>
                                 <![CDATA[
-                                    <p>New Test Report</p>
+                                    <p>New Test Automation Report Demo</p>
                                     <p>Attached html file contains the test result status </p>
                                     <p><?php date_default_timezone_set('Indonesia/Jakarta');?></p>
                                     ]]>

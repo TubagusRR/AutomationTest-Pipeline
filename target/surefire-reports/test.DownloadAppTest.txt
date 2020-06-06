@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: test.DownloadAppTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 28.187 sec <<< FAILURE! - in test.DownloadAppTest
+UpdateAppPositive(test.DownloadAppTest)  Time elapsed: 5.056 sec  <<< FAILURE!
+java.lang.AssertionError: null
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.fail(Assert.java:103)
+	at test.DownloadAppTest.UpdateAppPositive(DownloadAppTest.java:32)
+

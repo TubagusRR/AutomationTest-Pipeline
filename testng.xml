@@ -6,6 +6,7 @@
         <classes>
             <class name = "test.chipViewTest" />
             <class name = "test.DownloadAppTest" />
+            <class name = "test.scrollTest" />
         </classes>
     </test>
 </suite>
