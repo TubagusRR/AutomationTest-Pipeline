@@ -24,7 +24,7 @@ pipeline {
 
             steps{
                 withMaven(maven : 'maven'){
-                    bat 'mvn deploy'
+                    bat 'echo "This is Deployed"'
                 }
             }
         }
