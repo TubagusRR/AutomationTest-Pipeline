@@ -26,7 +26,7 @@ pipeline {
 
                 stage('Test on Iphone'){
                     agent{
-                        label "Iphone"
+                        label "Apple"
                     }
                     steps {
                         withMaven(maven : 'maven'){
