@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
         stage ("Compile Stage"){
@@ -12,20 +12,30 @@ pipeline {
         }
 
         stage("Testing Stage"){
-
-            steps {
-                parallel (
-                    withMaven(maven : 'maven'){
-                         a : {
+            parallel {
+                stage('Test on Android'){
+                    agent{
+                        label "Android"
+                    }
+                     steps {
+                        withMaven(maven : 'maven'){
                             bat 'mvn test'
-                           },
-                         b : {
-                            echo "This is Parallel"
-                        }
-                    )
+                            }
+                    }
                 }
-            }
-        }
+
+                stage('Test on Iphone'){
+                    agent{
+                        label "Iphone"
+                    }
+                    steps {
+                        withMaven(maven : 'maven'){
+                             echo "Iphone Parallel Test"
+                            }
+                       }
+                  }
+             }
+         }
 
         stage("Deployment Stage"){
 
