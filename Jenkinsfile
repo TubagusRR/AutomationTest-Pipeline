@@ -18,12 +18,12 @@ pipeline {
                     withMaven(maven : 'maven'){
                          a : {
                             bat 'mvn test'
-                            },
+                           },
                          b : {
                             echo "This is Parallel"
                         }
-                    }
-                )
+                    )
+                }
             }
         }
 
