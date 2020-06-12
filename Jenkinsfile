@@ -14,9 +14,6 @@ pipeline {
         stage("Testing Stage"){
             parallel {
                 stage('Test on Android'){
-                    agent{
-                        label "Android"
-                    }
                      steps {
                         withMaven(maven : 'maven'){
                             bat 'mvn test'
