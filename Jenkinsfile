@@ -14,9 +14,16 @@ pipeline {
         stage("Testing Stage"){
 
             steps {
-                withMaven(maven : 'maven'){
-                    bat 'mvn test'
-                }
+                parallel (
+                    withMaven(maven : 'maven'){
+                         a : {
+                            bat 'mvn test'
+                            },
+                         b : {
+                            echo "This is Parallel"
+                        }
+                    }
+                )
             }
         }
 
