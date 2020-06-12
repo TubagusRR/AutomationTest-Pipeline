@@ -16,8 +16,10 @@ public class scrollTest extends BaseClass {
     @Test
     public void scrollingDownTestUntilElementFound() throws Exception {
         try {
+            test = extentReport.createTest("Scroll Test","Scroll Test Until Element Found");
             scrollPage scrollpage = new scrollPage(driver);
             scrollpage.scrollDownUntilFound();
+            test.log(Status.INFO, "Scroll cta_button");
         }catch (Exception e){
             e.printStackTrace();
             Assert.fail();

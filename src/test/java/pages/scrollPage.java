@@ -27,7 +27,7 @@ public class scrollPage {
     public void scrollDownUntilFound() throws Exception {
         Boolean isElementfound = driver.findElements(app).size() > 0;
             while (isElementfound == false){
-                swipeVertical((AppiumDriver)driver,0.9,0.1,0.5,1000);
+                swipeVertical((AppiumDriver)driver,0.9,0.1,0.5,2000);
                 isElementfound = driver.findElements(app).size() > 0;
             }
     }

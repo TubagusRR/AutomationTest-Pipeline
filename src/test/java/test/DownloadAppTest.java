@@ -28,7 +28,7 @@ public class DownloadAppTest extends BaseClass {
             downloadAppPage.enterKeyword("Ezeelink");
             driver.pressKey(new KeyEvent(AndroidKey.ENTER));
             downloadAppPage.clickApp(driver);
-            downloadAppPage.clickUpdateButton(driver);
+//            downloadAppPage.clickUpdateButton(driver);
 
             test.log(Status.PASS, "Test");
        }catch(Exception e){
