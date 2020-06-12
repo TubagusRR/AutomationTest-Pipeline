@@ -25,9 +25,6 @@ pipeline {
                 }
 
                 stage('Test on Iphone'){
-                    agent{
-                        label "Apple"
-                    }
                     steps {
                         withMaven(maven : 'maven'){
                              echo "Iphone Parallel Test"
