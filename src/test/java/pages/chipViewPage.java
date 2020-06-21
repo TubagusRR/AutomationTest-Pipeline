@@ -1,5 +1,6 @@
 package pages;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -25,9 +26,12 @@ public class chipViewPage {
     @AndroidFindBy(id = "com.android.vending:id/title")
     private MobileElement tittle;
 
+//    By tittle = By.id("com.android.vending:id/title");
+
     public void multipleClass(AndroidDriver<MobileElement> driver){
-        WebDriverWait wait = new WebDriverWait(driver, 60);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/title")));
+//        WebDriverWait wait = new WebDriverWait(driver, 60);
+//        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/title")));
+        waitUntilELementFound(driver, 10, tittle);
         List<MobileElement> buttons = driver.findElements(By.id("com.android.vending:id/title"));
         buttons.get(1).click();
     }
@@ -49,5 +53,10 @@ public class chipViewPage {
             }catch(Exception e){
             e.printStackTrace();
             }
+        }
+
+        public void waitUntilELementFound(AppiumDriver driver, int secWait, MobileElement elementID){
+            WebDriverWait wait = new WebDriverWait(driver, secWait);
+            wait.until(ExpectedConditions.visibilityOf(elementID));
         }
     }

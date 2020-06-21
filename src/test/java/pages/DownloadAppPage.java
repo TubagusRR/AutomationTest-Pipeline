@@ -1,5 +1,6 @@
 package pages;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
@@ -9,8 +10,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.chipViewPage;
 
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 public class DownloadAppPage {
     private AndroidDriver<MobileElement> driver;
@@ -32,6 +35,9 @@ public class DownloadAppPage {
     @AndroidFindBy(id = "com.android.vending:id/right_button")
     private MobileElement updateButton;
 
+    @AndroidFindBy(id = "com.android.vending:id/bucket_items")
+    private MobileElement bucketItems;
+
 //    @AndroidFindBy(id = "com.android.vending:id/search_box_idle_text")
 //    private MobileElement searchBar;
 //
@@ -49,8 +55,7 @@ public class DownloadAppPage {
 
 
     public void clickSearchBar(AndroidDriver<MobileElement> driver){
-        WebDriverWait wait = new WebDriverWait(driver, 60);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/search_bar_hint")));
+        waitUntilELementFound(driver, 20, searchBar);
         searchBar.click();
     }
 
@@ -59,15 +64,29 @@ public class DownloadAppPage {
     }
 
     public void clickApp(AndroidDriver<MobileElement> driver){
-        WebDriverWait wait = new WebDriverWait(driver, 60);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/bucket_items")));
-        listViewApp.click();
+        waitUntilELementFound(driver, 20, bucketItems);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        List<MobileElement> appList = driver.findElements(By.id("com.android.vending:id/bucket_items"));
+        try {
+            if(wait.until(ExpectedConditions.visibilityOf((MobileElement) listViewApp)) != null) {
+                appList.get(1).click();
+                Thread.sleep(10000);
+            }else{
+                System.out.println("Not Found");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void clickUpdateButton(AndroidDriver<MobileElement> driver){
-        WebDriverWait wait = new WebDriverWait(driver, 60);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/right_button")));
+        waitUntilELementFound(driver, 20, updateButton);
         updateButton.click();
+    }
+
+    public static void waitUntilELementFound(AppiumDriver driver, int secWait, MobileElement elementID){
+        WebDriverWait wait = new WebDriverWait(driver, secWait);
+        wait.until(ExpectedConditions.visibilityOf(elementID));
     }
 
 //    public void clickSearchBar(AndroidDriver<MobileElement> driver){
